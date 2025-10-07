@@ -28,7 +28,7 @@ const app = express();
 // --- CRUCIAL FIX: Global CORS Configuration ---
 // This must come before your routes and static file serving.
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  origin: process.env.FRONTEND_URL || 'https://stately-licorice-25d7bf.netlify.app',
   credentials: true
 }));
 
