@@ -57,7 +57,7 @@ const getInvitationTemplate = (registrationLink) => {
         <div class="content">
           <h3>Welcome to Our Alumni Community!</h3>
           <p>Dear Alumni,</p>
-          <p>We are excited to invite you to join the GreonXpert Alumni Network, a platform designed to keep our community connected and engaged.</p>
+          <p>We are excited to invite you to join the Alumni Tracker  Alumni Network, a platform designed to keep our community connected and engaged.</p>
           <p>By joining, you'll be able to:</p>
           <ul>
             <li>Update and maintain your professional profile</li>
@@ -75,10 +75,10 @@ const getInvitationTemplate = (registrationLink) => {
           </p>
           <p><strong>Important:</strong> This invitation link will expire in 7 days for security reasons.</p>
           <p>If you have any questions, please don't hesitate to contact us.</p>
-          <p>Best regards,<br>The GreonXpert Team</p>
+          <p>Best regards,<br>The Alumni Tracker  Team</p>
         </div>
         <div class="footer">
-          <p>© 2024 GreonXpert. All rights reserved.</p>
+          <p>© 2024 Alumni Tracker . All rights reserved.</p>
           <p>This is an automated message. Please do not reply to this email.</p>
         </div>
       </div>
@@ -131,7 +131,7 @@ const getWelcomeTemplate = (name) => {
     <body>
       <div class="container">
         <div class="header">
-          <div class="logo">GreonXpert</div>
+          <div class="logo">Alumni Tracker </div>
           <h2>Welcome to Alumni Network!</h2>
         </div>
         <div class="content">
@@ -147,10 +147,10 @@ const getWelcomeTemplate = (name) => {
           </ul>
           <p>To get started, log in to your account and explore the features available to you.</p>
           <p>We're thrilled to have you as part of our alumni community!</p>
-          <p>Best regards,<br>The GreonXpert Team</p>
+          <p>Best regards,<br>The Alumni Tracker  Team</p>
         </div>
         <div class="footer">
-          <p>© 2024 GreonXpert. All rights reserved.</p>
+          <p>© 2024 Alumni Tracker . All rights reserved.</p>
         </div>
       </div>
     </body>
@@ -221,10 +221,10 @@ const getPasswordResetTemplate = (resetLink, name) => {
             ${resetLink}
           </p>
           <p><strong>This link will expire in 1 hour for security reasons.</strong></p>
-          <p>Best regards,<br>The GreonXpert Team</p>
+          <p>Best regards,<br>The Alumni Tracker  Team</p>
         </div>
         <div class="footer">
-          <p>© 2024 GreonXpert. All rights reserved.</p>
+          <p>© 2024 Alumni Tracker . All rights reserved.</p>
         </div>
       </div>
     </body>

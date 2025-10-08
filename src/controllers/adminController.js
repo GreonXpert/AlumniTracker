@@ -5,6 +5,7 @@ const crypto = require('crypto');
 const csv = require('csv-parser');
 const fs = require('fs');
 const XLSX = require('xlsx');
+const { getInvitationTemplate } = require('../utils/emailTemplates'); 
 
 // Send invite to single alumni
 const sendInvite = async (req, res) => {
@@ -52,18 +53,10 @@ const sendInvite = async (req, res) => {
     // Create registration link
     const registrationLink = `${process.env.FRONTEND_URL}/register/${token}`;
 
-    // Send email
-    const emailHtml = `
-      <h2>Invitation to Join Alumni Network</h2>
-      <p>Dear Alumni,</p>
-      <p>You have been invited to join the GreonXpert Alumni Network.</p>
-      <p>Please click the link below to create your account:</p>
-      <a href="${registrationLink}" style="display: inline-block; padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px;">Create Account</a>
-      <p>Or copy this link: ${registrationLink}</p>
-      <p>This link will expire in 7 days.</p>
-      <p>Best regards,<br>GreonXpert Team</p>
-    `;
+    // ✅ Use HTML from emailTemplates.js
+    const emailHtml = getInvitationTemplate(registrationLink);
 
+    // Send email
     const emailResult = await sendEmail({
       to: email,
       subject: 'Invitation to Join Alumni Network',
@@ -89,6 +82,7 @@ const sendInvite = async (req, res) => {
     });
   }
 };
+
 
 // Send bulk invites
 const sendBulkInvites = async (req, res) => {
