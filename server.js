@@ -28,7 +28,7 @@ const app = express();
 // --- CRUCIAL FIX: Global CORS Configuration ---
 // This must come before your routes and static file serving.
 app.use(cors({
-  origin:'https://stately-licorice-25d7bf.netlify.app',
+  origin:'https://illustrious-pegasus-7751d5.netlify.app',
   credentials: true
 }));
 
