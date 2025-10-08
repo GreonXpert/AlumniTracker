@@ -1,18 +1,29 @@
-const { Resend } = require('resend');
-const resend = new Resend(process.env.RESEND_API_KEY);
+const nodemailer = require('nodemailer');
+
+const transporter = nodemailer.createTransport({
+  host: process.env.EMAIL_HOST,
+  port: process.env.EMAIL_PORT,
+  secure: true,
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
 
 const sendEmail = async (options) => {
+  const mailOptions = {
+    from: process.env.EMAIL_FROM,
+    to: options.to,
+    subject: options.subject,
+    html: options.html,
+  };
+
   try {
-    await resend.emails.send({
-      from: process.env.EMAIL_FROM || 'Alumni Tracker <onboarding@resend.dev>',
-      to: options.to,
-      subject: options.subject,
-      html: options.html,
-    });
-    console.log('Email sent via Resend');
-    return { success: true };
+    const info = await transporter.sendMail(mailOptions);
+    console.log('Email sent:', info.messageId);
+    return { success: true, messageId: info.messageId };
   } catch (error) {
-    console.error('Email send error:', error);
+    console.error('Email error:', error);
     return { success: false, error: error.message };
   }
 };
